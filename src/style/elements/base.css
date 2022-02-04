@@ -12,5 +12,6 @@ main {
   grid-template-rows: 1fr 4fr;
   grid-template-areas: "display";
   width: min(80rem, 95%);
+  height: 80%;
   background: var(--clr-dark-brown);
 }
