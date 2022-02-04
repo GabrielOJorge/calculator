@@ -1,0 +1,4 @@
+.calc-display {
+  grid-area: display;
+  background-color: var(--clr-light-brown);
+}
