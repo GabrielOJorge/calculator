@@ -6,3 +6,10 @@ body {
   align-items: center;
   background: var(--clr-brown);
 }
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
