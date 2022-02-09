@@ -1,0 +1,5 @@
+.main-btn {
+  background: var(--clr-beige);
+  cursor: pointer;
+  border-radius: .5rem;
+}
