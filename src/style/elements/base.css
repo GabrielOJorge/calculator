@@ -5,6 +5,7 @@ body {
   justify-content: center;
   align-items: center;
   background: var(--clr-brown);
+  font-family: 'Open Sans', sans-serif;
 }
 
 main {
