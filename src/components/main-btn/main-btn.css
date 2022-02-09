@@ -9,5 +9,5 @@
 }
 
 .main-btn:hover {
-  background: #F2CE9B;
+  background: var(--clr-dark-beige);
 }
