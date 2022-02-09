@@ -1,4 +1,7 @@
 .main-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: var(--clr-beige);
   cursor: pointer;
   border-radius: .5rem;
