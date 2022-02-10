@@ -13,3 +13,7 @@
 .main-btn:hover {
   background: var(--clr-dark-beige);
 }
+
+.backspace {
+  width: 20%;
+}
