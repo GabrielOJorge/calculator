@@ -8,10 +8,16 @@
   transition: background .3s ease;
   font-size: clamp(1.8rem, 2.4rem, 2vw);
   color: var(--clr-dark-brown);
+  border-style: none;
 }
 
 .main-btn:hover {
   background: var(--clr-dark-beige);
+}
+
+.main-btn:active {
+  box-shadow: inset -3px -3px 4px var(--clr-beige),
+              inset 2px 2px 3px rgba(0, 0, 0, .6);
 }
 
 .backspace {
