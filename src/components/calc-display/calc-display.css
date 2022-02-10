@@ -7,7 +7,7 @@
   border-radius: .5rem;
 }
 
-.display {
+#display {
   font-size: clamp(6rem, 8rem, 5vw);
   padding: 0 2rem;
   overflow: hidden;
