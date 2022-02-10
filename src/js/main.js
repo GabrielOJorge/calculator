@@ -1,0 +1,1 @@
+const calcDisplay = document.getElementById("display");
