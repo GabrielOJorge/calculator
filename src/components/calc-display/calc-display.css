@@ -1,5 +1,14 @@
 .calc-display {
   grid-area: display;
+  display: grid;
+  justify-content: flex-end;
+  align-items: center;
   background-color: var(--clr-light-brown);
   border-radius: .5rem;
+}
+
+.display {
+  font-size: clamp(6rem, 8rem, 5vw);
+  padding: 0 2rem;
+  overflow: hidden;
 }
