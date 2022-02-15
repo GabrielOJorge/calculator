@@ -36,3 +36,8 @@ const operate = () => {
     calcDisplay.textContent = divide()
   }
 };
+
+numBtns.forEach(btn => btn.addEventListener("click", () => {
+  calcDisplay.textContent += `${btn.value}`;
+  getBtnValue(btn.value);
+}));
