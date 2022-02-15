@@ -14,3 +14,8 @@ const numBtns = document.querySelectorAll(".num");
 let x = 0;
 let y = 0;
 let op = "";
+
+const add = () => x + y;
+const substract = () => x - y;
+const multiply = () => x * y;
+const divide = () => x / y;
