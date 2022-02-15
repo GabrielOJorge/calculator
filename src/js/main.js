@@ -19,3 +19,8 @@ const add = () => x + y;
 const substract = () => x - y;
 const multiply = () => x * y;
 const divide = () => x / y;
+
+const getBtnValue = value => {
+  x = Number(value);
+  y = Number(value);
+};
