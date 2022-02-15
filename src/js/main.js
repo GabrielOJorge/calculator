@@ -24,3 +24,15 @@ const getBtnValue = value => {
   x = Number(value);
   y = Number(value);
 };
+
+const operate = () => {
+  if (op === "+") {
+    calcDisplay.textContent = add()
+  } else if (op === "*") {
+    calcDisplay.textContent = multiply()
+  } else if (op === "-") {
+    calcDisplay.textContent = substract()
+  } else if (op === "/") {
+    calcDisplay.textContent = divide()
+  }
+};
