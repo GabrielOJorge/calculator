@@ -13,7 +13,7 @@ const numBtns = document.querySelectorAll(".num");
 
 let x = 0;
 let y = 0;
-let op = "";
+let operator = "";
 
 const add = () => x + y;
 const substract = () => x - y;
