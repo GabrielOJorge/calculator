@@ -34,9 +34,17 @@ const operate = () => {
   }
 };
 
+const clear = () => {
+  calcDisplay.textContent = "0";
+  displayInput.value = "";
+  x = 0;
+  y = 0;
+  operator = "";
+};
+
 numBtns.forEach(btn => btn.addEventListener("click", () => {
   calcDisplay.textContent += `${btn.value}`;
-
+  
   displayInput.value += btn.value;
   let inputValue = Number(displayInput.value);
   operator === "" ? x = inputValue : y = inputValue;
@@ -44,8 +52,10 @@ numBtns.forEach(btn => btn.addEventListener("click", () => {
 
 operatorsBtns.forEach(op => op.addEventListener("click", () => {
   operator = op.value
-
+  
   displayInput.value = "";
 }));
 
 equalBtn.addEventListener("click", operate);
+
+clearBtn.addEventListener("click", clear);
