@@ -17,10 +17,17 @@ let x = 0;
 let y = 0;
 let operator = "";
 
-const add = () => x + y;
-const substract = () => x - y;
-const multiply = () => x * y;
-const divide = () => x / y;
+const calculator = {
+  add: () => x + y,
+  substract: () => x - y,
+  multiply: () => x * y,
+  divide: () => x / y,
+};
+
+const add = calculator.add;
+const substract = calculator.substract;
+const multiply = calculator.multiply;
+const divide = calculator.divide;
 
 const operate = () => {
   if (operator === "+") {
@@ -35,10 +42,10 @@ const operate = () => {
 };
 
 const clear = () => {
-  calcDisplay.textContent = "0";
-  displayInput.value = "";
   x = 0;
   y = 0;
+  calcDisplay.textContent = "";
+  displayInput.value = "";
   operator = "";
 };
 
@@ -57,5 +64,4 @@ operatorsBtns.forEach(op => op.addEventListener("click", () => {
 }));
 
 equalBtn.addEventListener("click", operate);
-
 clearBtn.addEventListener("click", clear);
