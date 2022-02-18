@@ -15,6 +15,7 @@ const operatorsBtns = document.querySelectorAll(".operator");
 
 let x = 0;
 let y = 0;
+let result = 0;
 let operator = "";
 
 const calculator = {
