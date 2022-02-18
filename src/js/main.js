@@ -34,17 +34,23 @@ const operate = () => {
   switch (operator) {
     case "+":
       calcDisplay.textContent = add();
+      x = add();
       break
     case "-":
       calcDisplay.textContent = substract();
+      x = substract();
       break
     case "*":
       calcDisplay.textContent = multiply();
+      x = multiply();
       break
     case "/":
       calcDisplay.textContent = divide();
-      break  
+      x = divide();
+      break
   }
+
+  console.log(x);
 };
 
 const clear = () => {
@@ -61,11 +67,12 @@ numBtns.forEach(btn => btn.addEventListener("click", () => {
   displayInput.value += btn.value;
   let inputValue = Number(displayInput.value);
   operator === "" ? x = inputValue : y = inputValue;
+
+  console.log(x, y);
 }));
 
 operatorsBtns.forEach(op => op.addEventListener("click", () => {
   operator = op.value
-  
   displayInput.value = "";
 }));
 
