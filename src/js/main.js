@@ -30,14 +30,19 @@ const multiply = calculator.multiply;
 const divide = calculator.divide;
 
 const operate = () => {
-  if (operator === "+") {
-    calcDisplay.textContent = add()
-  } else if (operator === "*") {
-    calcDisplay.textContent = multiply()
-  } else if (operator === "-") {
-    calcDisplay.textContent = substract()
-  } else if (operator === "/") {
-    calcDisplay.textContent = divide()
+  switch (operator) {
+    case "+":
+      calcDisplay.textContent = add();
+      break
+    case "-":
+      calcDisplay.textContent = substract();
+      break
+    case "*":
+      calcDisplay.textContent = multiply();
+      break
+    case "/":
+      calcDisplay.textContent = divide();
+      break  
   }
 };
 
