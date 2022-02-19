@@ -1,4 +1,5 @@
 const calcDisplay = document.getElementById("display");
+const upperDisplay = document.getElementById("upper-display");
 const displayInput = document.getElementById("display-input");
 const backspaceBtn = document.getElementById("backspace");
 const percentageBtn = document.getElementById("percentage-btn");
@@ -49,8 +50,6 @@ const operate = () => {
       x = divide();
       break
   }
-
-  console.log(x);
 };
 
 const clear = () => {
@@ -67,12 +66,12 @@ numBtns.forEach(btn => btn.addEventListener("click", () => {
   displayInput.value += btn.value;
   let inputValue = Number(displayInput.value);
   operator === "" ? x = inputValue : y = inputValue;
-
-  console.log(x, y);
 }));
 
 operatorsBtns.forEach(op => op.addEventListener("click", () => {
-  operator = op.value
+  operator = op.value;
+  calcDisplay.textContent = "";
+  upperDisplay.textContent = `${x} ${op.value}`;
   displayInput.value = "";
 }));
 
