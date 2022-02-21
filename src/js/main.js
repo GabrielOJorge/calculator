@@ -61,6 +61,11 @@ const clearAll = () => {
   operator = "";
 };
 
+const clearDisplay = () => {
+  calcDisplay.textContent = "";
+  upperDisplay.textContent = "";
+};
+
 numBtns.forEach(btn => btn.addEventListener("click", () => {
   calcDisplay.textContent += `${btn.value}`;
   
@@ -76,6 +81,9 @@ operatorsBtns.forEach(op => op.addEventListener("click", () => {
   upperDisplay.textContent = `${x} ${op.value}`;
 }));
 
-equalBtn.addEventListener("click", operate);
+equalBtn.addEventListener("click", () => {
+  clearDisplay();
+  operate();
+});
 
 clearBtn.addEventListener("click", clearAll);
