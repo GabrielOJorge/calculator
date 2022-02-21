@@ -87,3 +87,5 @@ equalBtn.addEventListener("click", () => {
 });
 
 clearBtn.addEventListener("click", clearAll);
+
+window.onload = clearAll;
