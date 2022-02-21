@@ -9,7 +9,6 @@ const multiplBtn = document.getElementById("multipl-btn");
 const substractBtn = document.getElementById("substract-btn");
 const plusBtn = document.getElementById("plus-btn");
 const posNegBtn = document.getElementById("pos-neg");
-const dotBtn = document.getElementById("dot-btn");
 const equalBtn = document.getElementById("equal-btn");
 const numBtns = document.querySelectorAll(".num");
 const operatorsBtns = document.querySelectorAll(".operator");
