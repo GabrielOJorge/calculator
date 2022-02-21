@@ -52,10 +52,11 @@ const operate = () => {
   }
 };
 
-const clear = () => {
+const clearAll = () => {
   x = 0;
   y = 0;
   calcDisplay.textContent = "";
+  upperDisplay.textContent = "";
   displayInput.value = "";
   operator = "";
 };
@@ -69,11 +70,12 @@ numBtns.forEach(btn => btn.addEventListener("click", () => {
 }));
 
 operatorsBtns.forEach(op => op.addEventListener("click", () => {
-  operator = op.value;
   calcDisplay.textContent = "";
-  upperDisplay.textContent = `${x} ${op.value}`;
   displayInput.value = "";
+  operator = op.value;
+  upperDisplay.textContent = `${x} ${op.value}`;
 }));
 
 equalBtn.addEventListener("click", operate);
-clearBtn.addEventListener("click", clear);
+
+clearBtn.addEventListener("click", clearAll);
