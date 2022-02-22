@@ -75,6 +75,7 @@ const assignVarValue = () => {
 
 const changeSign = () => {
   Math.sign(displayInput.value) !== 1 ? displayInput.value = Math.abs(displayInput.value) : displayInput.value = -Math.abs(displayInput.value);
+  updateDisplay(displayInput.value);
   assignVarValue();
 };
 
