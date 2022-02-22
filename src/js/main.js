@@ -68,12 +68,20 @@ const clearAll = () => {
   operator = "";
 };
 
-numBtns.forEach(btn => btn.addEventListener("click", () => {
-  calcDisplay.textContent += `${btn.value}`;
-  
-  displayInput.value += btn.value;
+const assignVarValue = () => {
   let inputValue = Number(displayInput.value);
   operator === "" ? x = inputValue : y = inputValue;
+}
+
+const changeSign = () => {
+  Math.sign(displayInput.value) !== 1 ? displayInput.value = Math.abs(displayInput.value) : displayInput.value = -Math.abs(displayInput.value);
+  assignVarValue();
+};
+
+numBtns.forEach(btn => btn.addEventListener("click", () => {
+  calcDisplay.textContent += `${btn.value}`;
+  displayInput.value += btn.value;
+  assignVarValue();
 }));
 
 operatorsBtns.forEach(op => op.addEventListener("click", () => {
@@ -88,6 +96,7 @@ equalBtn.addEventListener("click", () => {
   operate();
 });
 
+signBtn.addEventListener("click", changeSign);
 clearBtn.addEventListener("click", clearAll);
 
 window.onload = clearAll;
