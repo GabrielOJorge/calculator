@@ -8,14 +8,13 @@ const divisionBtn = document.getElementById("division-btn");
 const multiplBtn = document.getElementById("multipl-btn");
 const substractBtn = document.getElementById("substract-btn");
 const plusBtn = document.getElementById("plus-btn");
-const signBtn = document.getElementById("sing-btn");
+const signBtn = document.getElementById("sign-btn");
 const equalBtn = document.getElementById("equal-btn");
 const numBtns = document.querySelectorAll(".num");
 const operatorsBtns = document.querySelectorAll(".operator");
 
 let x = 0;
 let y = 0;
-let result = 0;
 let operator = "";
 
 const calculator = {
@@ -30,22 +29,31 @@ const substract = calculator.substract;
 const multiply = calculator.multiply;
 const divide = calculator.divide;
 
+const updateDisplay = value => {
+  calcDisplay.textContent = value;
+}
+
+const clearDisplay = () => {
+  updateDisplay("");
+  upperDisplay.textContent = "";
+};
+
 const operate = () => {
   switch (operator) {
     case "+":
-      calcDisplay.textContent = add();
+      updateDisplay(add());
       x = add();
       break
     case "-":
-      calcDisplay.textContent = substract();
+      updateDisplay(substract());
       x = substract();
       break
     case "*":
-      calcDisplay.textContent = multiply();
+      updateDisplay(multiply());
       x = multiply();
       break
     case "/":
-      calcDisplay.textContent = divide();
+      updateDisplay(divide());
       x = divide();
       break
   }
@@ -54,15 +62,10 @@ const operate = () => {
 const clearAll = () => {
   x = 0;
   y = 0;
-  calcDisplay.textContent = "";
+  updateDisplay("");
   upperDisplay.textContent = "";
   displayInput.value = "";
   operator = "";
-};
-
-const clearDisplay = () => {
-  calcDisplay.textContent = "";
-  upperDisplay.textContent = "";
 };
 
 numBtns.forEach(btn => btn.addEventListener("click", () => {
@@ -74,7 +77,7 @@ numBtns.forEach(btn => btn.addEventListener("click", () => {
 }));
 
 operatorsBtns.forEach(op => op.addEventListener("click", () => {
-  calcDisplay.textContent = "";
+  updateDisplay("");
   displayInput.value = "";
   operator = op.value;
   upperDisplay.textContent = `${x} ${op.value}`;
