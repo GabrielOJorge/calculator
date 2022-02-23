@@ -1,5 +1,4 @@
 .calc-display {
-  grid-area: display;
   display: grid;
   justify-content: flex-end;
   align-items: center;
@@ -7,17 +6,16 @@
   border-radius: .5rem;
 }
 
-.teste {
+.calc-display div {
   display: flex;
+  overflow: hidden;
 }
 
 #upper-display {
   font-size: clamp(4rem, 6rem, 3vw);
-  overflow: hidden;
 }
 
 #display {
   font-size: clamp(6rem, 8rem, 5vw);
   padding: 0 2rem;
-  overflow: hidden;
 }
