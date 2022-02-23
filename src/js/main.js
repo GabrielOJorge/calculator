@@ -79,6 +79,14 @@ const changeSign = () => {
   assignVarValue();
 };
 
+const deleteLastNum = () => {
+  let teste = displayInput.value.split("");
+  teste.pop();
+  displayInput.value = teste.join("");
+  updateDisplay(displayInput.value);
+  assignVarValue();
+};
+
 numBtns.forEach(btn => btn.addEventListener("click", () => {
   calcDisplay.textContent += `${btn.value}`;
   displayInput.value += btn.value;
@@ -98,6 +106,7 @@ equalBtn.addEventListener("click", () => {
 });
 
 signBtn.addEventListener("click", changeSign);
+backspaceBtn.addEventListener("click", deleteLastNum);
 clearBtn.addEventListener("click", clearAll);
 
 window.onload = clearAll;
