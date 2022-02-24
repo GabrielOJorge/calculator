@@ -15,7 +15,8 @@ const operatorsBtns = document.querySelectorAll(".operator");
 
 let x = 0;
 let y = 0;
-let operator = "";
+let previousOperator = "";
+let currentOperator = "";
 
 const calculator = {
   add: () => x + y,
@@ -29,6 +30,12 @@ const substract = calculator.substract;
 const multiply = calculator.multiply;
 const divide = calculator.divide;
 
+const checkOperators = prev => {
+  if (prev !== "" & currentOperator !== prev) {
+    operate(prev);
+  }
+};
+
 const updateDisplay = value => {
   calcDisplay.textContent = value;
 }
@@ -38,8 +45,8 @@ const clearDisplay = () => {
   upperDisplay.textContent = "";
 };
 
-const operate = () => {
-  switch (operator) {
+const operate = (op) => {
+  switch (op) {
     case "+":
       updateDisplay(add());
       x = add();
@@ -65,12 +72,12 @@ const clearAll = () => {
   updateDisplay("");
   upperDisplay.textContent = "";
   displayInput.value = "";
-  operator = "";
+  currentOperator = "";
 };
 
 const assignVarValue = () => {
   let inputValue = Number(displayInput.value);
-  operator === "" ? x = inputValue : y = inputValue;
+  currentOperator === "" ? x = inputValue : y = inputValue;
 }
 
 const changeSign = () => {
@@ -96,13 +103,15 @@ numBtns.forEach(btn => btn.addEventListener("click", () => {
 operatorsBtns.forEach(op => op.addEventListener("click", () => {
   updateDisplay("");
   displayInput.value = "";
-  operator = op.value;
+  previousOperator = currentOperator;
+  currentOperator = op.value;
   upperDisplay.textContent = `${x} ${op.value}`;
+  checkOperators(previousOperator);
 }));
 
 equalBtn.addEventListener("click", () => {
   clearDisplay();
-  operate();
+  operate(currentOperator);
 });
 
 signBtn.addEventListener("click", changeSign);
