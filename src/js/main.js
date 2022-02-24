@@ -1,5 +1,4 @@
 const calcDisplay = document.getElementById("display");
-const upperDisplay = document.getElementById("upper-display");
 const displayInput = document.getElementById("display-input");
 const backspaceBtn = document.getElementById("backspace");
 const percentageBtn = document.getElementById("percentage-btn");
@@ -42,7 +41,6 @@ const updateDisplay = value => {
 
 const clearDisplay = () => {
   updateDisplay("");
-  upperDisplay.textContent = "";
 };
 
 const operate = (op) => {
@@ -70,7 +68,6 @@ const clearAll = () => {
   x = 0;
   y = 0;
   updateDisplay("");
-  upperDisplay.textContent = "";
   displayInput.value = "";
   currentOperator = "";
 };
@@ -105,7 +102,6 @@ operatorsBtns.forEach(op => op.addEventListener("click", () => {
   displayInput.value = "";
   previousOperator = currentOperator;
   currentOperator = op.value;
-  upperDisplay.textContent = `${x} ${op.value}`;
   checkOperators(previousOperator);
 }));
 

@@ -6,16 +6,8 @@
   border-radius: .5rem;
 }
 
-.calc-display div {
-  display: flex;
-  overflow: hidden;
-}
-
-#upper-display {
-  font-size: clamp(4rem, 6rem, 3vw);
-}
-
 #display {
   font-size: clamp(6rem, 8rem, 5vw);
   padding: 0 2rem;
+  overflow: hidden;
 }
