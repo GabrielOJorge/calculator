@@ -14,8 +14,8 @@ const operatorsBtns = document.querySelectorAll(".operator");
 
 let x = 0;
 let y = 0;
-let previousOperator = "";
-let currentOperator = "";
+let previousOperator = null;
+let currentOperator = null;
 
 const calculator = {
   add: () => x + y,
@@ -30,7 +30,7 @@ const multiply = calculator.multiply;
 const divide = calculator.divide;
 
 const checkOperators = prev => {
-  if (prev !== "" & currentOperator !== prev) {
+  if (prev !== null & currentOperator !== prev) {
     operate(prev);
   }
 };
@@ -40,7 +40,7 @@ const updateDisplay = value => {
 }
 
 const clearDisplay = () => {
-  updateDisplay("");
+  updateDisplay(null);
 };
 
 const operate = (op) => {
@@ -67,14 +67,14 @@ const operate = (op) => {
 const clearAll = () => {
   x = 0;
   y = 0;
-  updateDisplay("");
-  displayInput.value = "";
-  currentOperator = "";
+  updateDisplay(null);
+  displayInput.value = null;
+  currentOperator = null;
 };
 
 const assignVarValue = () => {
   let inputValue = Number(displayInput.value);
-  currentOperator === "" ? x = inputValue : y = inputValue;
+  currentOperator === null ? x = inputValue : y = inputValue;
 }
 
 const changeSign = () => {
@@ -84,9 +84,9 @@ const changeSign = () => {
 };
 
 const deleteLastNum = () => {
-  let teste = displayInput.value.split("");
+  let teste = displayInput.value.split(null);
   teste.pop();
-  displayInput.value = teste.join("");
+  displayInput.value = teste.join(null);
   updateDisplay(displayInput.value);
   assignVarValue();
 };
@@ -98,8 +98,8 @@ numBtns.forEach(btn => btn.addEventListener("click", () => {
 }));
 
 operatorsBtns.forEach(op => op.addEventListener("click", () => {
-  updateDisplay("");
-  displayInput.value = "";
+  updateDisplay(null);
+  displayInput.value = null;
   previousOperator = currentOperator;
   currentOperator = op.value;
   checkOperators(previousOperator);
