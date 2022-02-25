@@ -12,8 +12,8 @@ const equalBtn = document.getElementById("equal-btn");
 const numBtns = document.querySelectorAll(".num");
 const operatorsBtns = document.querySelectorAll(".operator");
 
-let x = 0;
-let y = 0;
+let x = null;
+let y = null;
 let previousOperator = null;
 let currentOperator = null;
 
@@ -30,8 +30,7 @@ const multiply = calculator.multiply;
 const divide = calculator.divide;
 
 const checkOperators = prev => {
-  console.log(prev, currentOperator);
-  if (prev !== null & currentOperator !== prev) {
+  if (prev !== null && currentOperator !== prev) {
     operate(prev);
   }
 };
@@ -66,8 +65,8 @@ const operate = (op) => {
 };
 
 const clearAll = () => {
-  x = 0;
-  y = 0;
+  x = null;
+  y = null;
   updateDisplay(null);
   displayInput.value = null;
   currentOperator = null;
@@ -106,8 +105,10 @@ operatorsBtns.forEach(op => op.addEventListener("click", () => {
 }));
 
 equalBtn.addEventListener("click", () => {
-  clearDisplay();
-  operate(currentOperator);
+  if (x !== null && y !== null && currentOperator !== null) {
+    clearDisplay();
+    operate(currentOperator);
+  }
   previousOperator = null;
   currentOperator = null;
 });
