@@ -46,20 +46,20 @@ const clearDisplay = () => {
 const operate = (op) => {
   switch (op) {
     case "+":
-      updateDisplay(add());
-      x = add();
+      x = Math.round(add() * 10) / 10;
+      updateDisplay(x);
       break
     case "-":
-      updateDisplay(substract());
-      x = substract();
+      x = Math.round(substract() * 10) / 10;
+      updateDisplay(x);
       break
     case "*":
-      updateDisplay(multiply());
-      x = multiply();
+      x = Math.round(multiply() * 10) / 10;
+      updateDisplay(x);
       break
     case "/":
-      updateDisplay(divide());
-      x = divide();
+      x = Math.round(divide() * 10) / 10;
+      updateDisplay(x);
       break
   }
 };
@@ -84,9 +84,9 @@ const changeSign = () => {
 };
 
 const deleteLastNum = () => {
-  let teste = displayInput.value.split(null);
+  let teste = displayInput.value.split("");
   teste.pop();
-  displayInput.value = teste.join(null);
+  displayInput.value = teste.join("");
   updateDisplay(displayInput.value);
   assignVarValue();
 };
@@ -98,7 +98,6 @@ numBtns.forEach(btn => btn.addEventListener("click", () => {
 }));
 
 operatorsBtns.forEach(op => op.addEventListener("click", () => {
-  updateDisplay(null);
   displayInput.value = null;
   previousOperator = currentOperator;
   currentOperator = op.value;
