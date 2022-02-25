@@ -22,12 +22,18 @@ const calculator = {
   substract: () => x - y,
   multiply: () => x * y,
   divide: () => x / y,
+  takePercentage: () => {
+    displayInput.value /= 100; 
+    updateDisplay(displayInput.value);
+    assignVarValue();
+  }
 };
 
 const add = calculator.add;
 const substract = calculator.substract;
 const multiply = calculator.multiply;
 const divide = calculator.divide;
+const takePercentage = calculator.takePercentage;
 
 const checkOperators = prev => {
   if (prev !== null && currentOperator !== prev) {
@@ -92,7 +98,7 @@ const deleteLastNum = () => {
 };
 
 numBtns.forEach(btn => btn.addEventListener("click", () => {
-  calcDisplay.textContent += `${btn.value}`;
+  calcDisplay.textContent += btn.value;
   displayInput.value += btn.value;
   assignVarValue();
 }));
@@ -113,6 +119,7 @@ equalBtn.addEventListener("click", () => {
   currentOperator = null;
 });
 
+percentageBtn.addEventListener("click", takePercentage);
 signBtn.addEventListener("click", changeSign);
 backspaceBtn.addEventListener("click", deleteLastNum);
 clearBtn.addEventListener("click", clearAll);
