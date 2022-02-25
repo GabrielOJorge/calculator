@@ -30,6 +30,7 @@ const multiply = calculator.multiply;
 const divide = calculator.divide;
 
 const checkOperators = prev => {
+  console.log(prev, currentOperator);
   if (prev !== null & currentOperator !== prev) {
     operate(prev);
   }
@@ -107,6 +108,8 @@ operatorsBtns.forEach(op => op.addEventListener("click", () => {
 equalBtn.addEventListener("click", () => {
   clearDisplay();
   operate(currentOperator);
+  previousOperator = null;
+  currentOperator = null;
 });
 
 signBtn.addEventListener("click", changeSign);
