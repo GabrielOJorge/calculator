@@ -90,14 +90,19 @@ const changeSign = () => {
 };
 
 const deleteLastNum = () => {
-  let teste = displayInput.value.split("");
-  teste.pop();
-  displayInput.value = teste.join("");
+  let value = displayInput.value.split("");
+  value.pop();
+  displayInput.value = value.join("");
   updateDisplay(displayInput.value);
   assignVarValue();
 };
 
 numBtns.forEach(btn => btn.addEventListener("click", () => {
+  if (x !== null && y === null && currentOperator !== null) {
+    updateDisplay(null);
+  } else if (x !== null && y !== null && currentOperator !== null) {
+    updateDisplay(null);
+  } 
   calcDisplay.textContent += btn.value;
   displayInput.value += btn.value;
   assignVarValue();
@@ -115,6 +120,8 @@ equalBtn.addEventListener("click", () => {
     clearDisplay();
     operate(currentOperator);
   }
+  y = null;
+  displayInput.value = x;
   previousOperator = null;
   currentOperator = null;
 });
