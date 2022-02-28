@@ -8,6 +8,7 @@ const multiplBtn = document.getElementById("multipl-btn");
 const substractBtn = document.getElementById("substract-btn");
 const plusBtn = document.getElementById("plus-btn");
 const signBtn = document.getElementById("sign-btn");
+const dotBtn = document.getElementById("dot-btn")
 const equalBtn = document.getElementById("equal-btn");
 const numBtns = document.querySelectorAll(".num");
 const operatorsBtns = document.querySelectorAll(".operator");
@@ -101,6 +102,14 @@ const calculator = {
     previousOperator = null;
     currentOperator = null;
   },
+
+  addDot: () => {
+    if (displayInput.value.includes(".") === false) {
+      displayInput.value += dotBtn.value; 
+    }
+    updateDisplay(displayInput.value);
+    assignVarValue();
+  },
 };
 
 const add = calculator.add;
@@ -117,6 +126,7 @@ const assignVarValue = calculator.assignVarValue;
 const changeSign = calculator.changeSign;
 const deleteLastNum = calculator.deleteLastNum;
 const equalBtnFunc = calculator.equalBtnFunc;
+const addDot = calculator.addDot;
 
 numBtns.forEach(btn => btn.addEventListener("click", () => {
   if (x !== null && y === null && currentOperator !== null) {
@@ -141,5 +151,6 @@ percentageBtn.addEventListener("click", takePercentage);
 signBtn.addEventListener("click", changeSign);
 backspaceBtn.addEventListener("click", deleteLastNum);
 clearBtn.addEventListener("click", clearAll);
+dotBtn.addEventListener("click", addDot);
 
 window.onload = clearAll;
