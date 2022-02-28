@@ -40,10 +40,6 @@ const calculator = {
     calcDisplay.textContent = value;
   },
 
-  clearDisplay: () => {
-    updateDisplay(null);
-  },
-
   operate: op => {
     switch (op) {
       case "+":
@@ -94,7 +90,7 @@ const calculator = {
 
   equalBtnFunc: () => {
     if (x !== null && y !== null && currentOperator !== null) {
-      clearDisplay();
+      updateDisplay(null);
       operate(currentOperator);
     }
     y = null;
@@ -119,7 +115,6 @@ const divide = calculator.divide;
 const takePercentage = calculator.takePercentage;
 const checkOperators = calculator.checkOperators;
 const updateDisplay = calculator.updateDisplay;
-const clearDisplay = calculator.clearDisplay;
 const operate = calculator.operate;
 const clearAll = calculator.clearAll;
 const assignVarValue = calculator.assignVarValue;
