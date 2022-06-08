@@ -13,6 +13,7 @@ const equalBtn = document.getElementById("equal-btn");
 const numBtns = document.querySelectorAll(".num");
 const operatorsBtns = document.querySelectorAll(".operator");
 
+let previousX = null;
 let x = null;
 let y = null;
 let previousOperator = null;
@@ -23,6 +24,11 @@ const calculator = {
   substract: () => x - y,
   multiply: () => x * y,
   divide: () => x / y,
+
+  assignVarValue: () => {
+    let inputValue = Number(displayInput.value);
+    currentOperator === null ? x = inputValue : y = inputValue;
+  },
   
   takePercentage: () => {
     displayInput.value /= 100; 
@@ -69,11 +75,6 @@ const calculator = {
     currentOperator = null;
   },
 
-  assignVarValue: () => {
-    let inputValue = Number(displayInput.value);
-    currentOperator === null ? x = inputValue : y = inputValue;
-  },
-
   changeSign: () => {
     Math.sign(displayInput.value) !== 1 ? displayInput.value = Math.abs(displayInput.value) : displayInput.value = -Math.abs(displayInput.value);
     updateDisplay(displayInput.value);
@@ -93,10 +94,16 @@ const calculator = {
       updateDisplay(null);
       operate(currentOperator);
     }
+
     y = null;
     displayInput.value = x;
     previousOperator = null;
     currentOperator = null;
+
+    numBtns.forEach(btn => {
+      btn.addEventListener("click", clearAll);
+      btn.removeEventListener("click", clearAll);
+    });
   },
 
   addDot: () => {
@@ -128,7 +135,7 @@ numBtns.forEach(btn => btn.addEventListener("click", () => {
     updateDisplay(null);
   } else if (x !== null && y !== null && currentOperator !== null) {
     updateDisplay(null);
-  } 
+  }
   calcDisplay.textContent += btn.value;
   displayInput.value += btn.value;
   assignVarValue();
@@ -147,5 +154,4 @@ signBtn.addEventListener("click", changeSign);
 backspaceBtn.addEventListener("click", deleteLastNum);
 clearBtn.addEventListener("click", clearAll);
 dotBtn.addEventListener("click", addDot);
-
-window.onload = clearAll;
+window.addEventListener("load", clearAll);
